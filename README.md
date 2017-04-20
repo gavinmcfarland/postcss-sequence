@@ -46,10 +46,22 @@ units: [
 
 # Options
 
-- `abbr`: A `string`  with the abbreviation of the name for your unit.  For more complex units you can use a number identifier like so `<g>` where `g` is the variable used in your pattern. If you require something unique you can also use a `regex`.
-- `position`: Position of where the abbreviation is placed. To the end by default. Choose from `'start'`, `'middle'` or `'end'`.  
-- `pattern`: Pattern used to generate the `n` index from a numerical sequence. If using a regex or middle position affix you can use lowercase letters starting from `a` to reference groups in in the order they were captured. See example below.
-- `output`:  Optional,`'px'` used by default.
+### `abbr`
+
+A `string`  with the abbreviation of the name for your unit.  For more complex units you can use a number identifier like so `<g>` where `g` is the variable used in your pattern. If you require something unique you can also use a `regex`.
+
+### `position`
+
+Position of where the abbreviation is placed. To the end by default. Choose from `'start'`, `'middle'` or `'end'`.
+
+
+### `pattern`
+
+Pattern used to generate the `n` index from a numerical sequence. If using a regex or middle position affix you can use lowercase letters starting from `a` to reference groups in in the order they were captured. See example below.
+
+### `output`
+
+Optional,`'px'` used by default.
 
 
 # Various examples

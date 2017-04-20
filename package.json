@@ -1,6 +1,6 @@
 {
   "name": "postcss-sequence",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PostCSS plugin Manage the consistent scale and proportion of your design using custom units based on numerical sequences",
   "keywords": [
     "postcss",
