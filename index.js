@@ -82,7 +82,6 @@ function unitCalculator (decl, units) {
                 var namedIdents = [];
                 var unnamedIdents = [];
                 var variableValues = regex.exec(declValueArray[i]); // Beware includes original string as well
-
                 if ((typeof unit.abbr === "string") && (unit.abbr.match(GROUP_REGEX))) {
 
                     var newMatches;
@@ -121,6 +120,8 @@ function unitCalculator (decl, units) {
                 }
 
                 variableObj['phi'] = phi;
+                variableObj['n'] = variableValues[1];
+
                 var newValue = pattern.evaluate(variableObj);
                 var delcValueArg = newValue + unit.output;
 
@@ -136,7 +137,7 @@ function unitCalculator (decl, units) {
 }
 
 
-module.exports = postcss.plugin('postcss-sequence', function (opts) {
+module.exports = postcss.plugin('postcss-pat', function (opts) {
     opts = opts || {};
 
     return function (css, result) {
