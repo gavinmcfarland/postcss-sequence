@@ -1,31 +1,28 @@
-# PostCSS Sequence [![Build Status][ci-img]][ci]
+# PostCSS Sequence [![Build Status]
 
-Manage the consistent scale and proportion of your design using custom units based on numerical sequences.
-
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/sevenupcan/postcss-sequence.svg
-[ci]:      https://travis-ci.org/sevenupcan/postcss-sequence
+A [PostCSS](https://github.com/postcss/postcss) plugin for managing consistent scale and proportion of your design using custom units based on numerical sequences.
 
 # Usage
 
-Create custom units by defining an abbreviation and the pattern to generate the `n` index from a numerical sequence.
-```
+Create custom units by defining an abbreviation and the pattern to generate the `n`th index from a numerical sequence.
+```js
 units: [
-    { 
-        abbr: 'gu', 
+    {
+        abbr: 'gu',
         pattern: 'n * 4',
-    }]
+    }
+]
 ```
 
 Example:
-```
+```css
 div {
     padding: 4gu;
 }
 ```
 
 Outputs:
-```
+```css
 div {
      padding: 16px; // (4 * 4)
 }
@@ -37,13 +34,14 @@ div {
 npm install postcss-sequence
 ```
 
-Set the options for your units in the plugin
-```
+Define one or more units by passing them to the plugin as options:
+```js
 units: [
-    { 
+    {
         abbr: 'gu',
         pattern: 'n * 4',
-    }]
+    }
+]
 ```
 
 # Options
@@ -61,10 +59,11 @@ units: [
 A grid unit based on a grid of 4px
 ```js
 units: [
-    { 
+    {
         abbr: 'gu',
         pattern: 'n * 4',
-    }]
+    }
+]
 ```
 
 Usage:
@@ -92,7 +91,8 @@ units: [
         abbr: 'x',
         pattern: 'n * pow(16, 1.68)',
         output: 'em'
-    }]
+    }
+]
 ```
 
 Usage:
@@ -117,18 +117,19 @@ units: [
         abbr: /([0-9]+)\'([0-9]+)\"/,
         pattern: '((a * 12) + b ) * 10',
         output: 'px'
-    }]
+    }
+]
 ```
 
 Usage:
-```
+```css
 div {
 	width: 4'2";
 }
 ```
 
 Ouputs:
-```
+```css
 div {
 	width: 500px;
 }
@@ -143,18 +144,19 @@ units: [
         abbr: '<n>/<d>',
         pattern: 'n / d',
         output: '%'
-    }]
+    }
+]
 ```
 
 Usage:
-```
+```css
 div {
 	width: 1/4;
 }
 ```
 
 Ouputs:
-```
+```css
 div {
 	width: 25%;
 }
@@ -172,14 +174,14 @@ units: [
 ```
 
 Usage:
-```
+```css
 div {
 	width: 26px;
 }
 ```
 
 Outputs:
-```
+```css
 div {
 	width: 30px;
 }
@@ -193,19 +195,20 @@ units: [
     {
 	    abbr: 'f',
 	    position: 'start',
-	    pattern: 'floor (PHI ^ n / sqrt 5 + 0.5)'
-    }]
+	    pattern: 'floor (phi ^ n / sqrt 5 + 0.5)'
+    }
+]
 ```
 
 Usage:
-```
+```css
 div {
 	width: f6;
 	padding: f3 f4;
 }
 ```
 Outputs:
-```
+```css
 div {
 	font-size: 24px;
 	padding: 4.8px;
