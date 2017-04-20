@@ -1,4 +1,4 @@
-# PostCSS Sequence [![Build Status]
+# PostCSS Sequence
 
 A [PostCSS](https://github.com/postcss/postcss) plugin for managing consistent scale and proportion of your design using custom units based on numerical sequences.
 
