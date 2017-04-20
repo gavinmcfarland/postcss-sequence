@@ -15,7 +15,7 @@ units: [
 ```
 
 Example:
-```css
+```
 div {
     padding: 4gu;
 }
@@ -67,7 +67,7 @@ units: [
 ```
 
 Usage:
-```css
+```
 div {
 	padding: 4gu;
 	margin: 4gu 2gu;
@@ -96,7 +96,7 @@ units: [
 ```
 
 Usage:
-```css
+```
 h1 {
 	font-size: 5x;
 }
@@ -122,7 +122,7 @@ units: [
 ```
 
 Usage:
-```css
+```
 div {
 	width: 4'2";
 }
@@ -149,7 +149,7 @@ units: [
 ```
 
 Usage:
-```css
+```
 div {
 	width: 1/4;
 }
@@ -174,7 +174,7 @@ units: [
 ```
 
 Usage:
-```css
+```
 div {
 	width: 26px;
 }
@@ -201,7 +201,7 @@ units: [
 ```
 
 Usage:
-```css
+```
 div {
 	width: f6;
 	padding: f3 f4;
