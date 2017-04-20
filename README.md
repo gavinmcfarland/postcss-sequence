@@ -89,7 +89,7 @@ Setting the font based on a scale using golden ratio
 units: [
     {
         abbr: 'x',
-        pattern: 'n * pow(16, 1.68)',
+        pattern: 'n * 16 ^ 1.68',
         output: 'em'
     }
 ]
@@ -214,5 +214,3 @@ div {
 	padding: 4.8px;
 }
 ```
-
-See [PostCSS] docs for examples for your environment.
