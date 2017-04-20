@@ -16,11 +16,13 @@
   },
   "homepage": "https://github.com/sevenupcan/postcss-sequence",
   "dependencies": {
-    "postcss": "^5.2.6"
+    "postcss": "^5.2.6",
+    "expr-eval": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^3.12.2",
     "eslint-config-postcss": "^2.0.2",
+    "expr-eval": "^1.0.0",
     "jest": "^18.0.0"
   },
   "scripts": {
