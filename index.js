@@ -136,7 +136,7 @@ function unitCalculator (decl, units) {
 }
 
 
-module.exports = postcss.plugin('postcss-pat', function (opts) {
+module.exports = postcss.plugin('postcss-sequence', function (opts) {
     opts = opts || {};
 
     return function (css, result) {
