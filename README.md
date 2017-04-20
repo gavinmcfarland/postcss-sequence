@@ -46,20 +46,20 @@ units: [
 
 # Options
 
-### `abbr`
+#### `abbr`
 
 A `string`  with the abbreviation of the name for your unit.  For more complex units you can use a number identifier like so `<g>` where `g` is the variable used in your pattern. If you require something unique you can also use a `regex`.
 
-### `position`
+#### `position`
 
 Position of where the abbreviation is placed. To the end by default. Choose from `'start'`, `'middle'` or `'end'`.
 
 
-### `pattern`
+#### `pattern`
 
 Pattern used to generate the `n` index from a numerical sequence. If using a regex or middle position affix you can use lowercase letters starting from `a` to reference groups in in the order they were captured. See example below.
 
-### `output`
+#### `output`
 
 Optional,`'px'` used by default.
 
@@ -101,8 +101,8 @@ Setting the font based on a scale using golden ratio
 units: [
     {
         abbr: 'x',
-        pattern: 'n * 16 ^ 1.68',
-        output: 'em'
+        pattern: 'round (16 * 1.618 ^ n) / 16',
+        output: 'rem'
     }
 ]
 ```
@@ -110,13 +110,26 @@ units: [
 Usage:
 ```
 h1 {
-	font-size: 5x;
+	font-size: 4x;
 }
 h2 {
-	font-size: 4x;
+	font-size: 3x;
 }
 h3 {
 	font-size: 2x;
+}
+```
+
+Output:
+```
+h1 {
+	font-size: 6.875rem;
+}
+h2 {
+	font-size: 4.25rem;
+}
+h3 {
+	font-size: 2.625rem;
 }
 ```
 
