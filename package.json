@@ -1,0 +1,35 @@
+{
+  "name": "postcss-sequence",
+  "version": "0.0.0",
+  "description": "PostCSS plugin Manage the consistent scale and proportion of your design using custom units based on numerical sequences",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "custom units"
+  ],
+  "author": "Gavin McFarland <sevenupcan@gmail.com>",
+  "license": "MIT",
+  "repository": "sevenupcan/postcss-sequence",
+  "bugs": {
+    "url": "https://github.com/sevenupcan/postcss-sequence/issues"
+  },
+  "homepage": "https://github.com/sevenupcan/postcss-sequence",
+  "dependencies": {
+    "postcss": "^5.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^18.0.0"
+  },
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  }
+}
