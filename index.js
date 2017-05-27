@@ -64,7 +64,7 @@ function unitCalculator (decl, units) {
 
     // For each value in the declValueArray
     for (var i = 0; i < declValueArray.length; i++) {
-        var delcValueArg = declValueArray[i];
+        var originalArg = declValueArray[i];
 
         // For each unit in array
         for (var z = 0; z < units.length; z++) {
@@ -72,6 +72,7 @@ function unitCalculator (decl, units) {
             unit.output = unit.output || "px";
 
             var regex = makeRegex(unit);
+
 
             // If unit matches declValueArray
             if (declValueArray[i].match(regex)) {
@@ -82,6 +83,7 @@ function unitCalculator (decl, units) {
                 var namedIdents = [];
                 var unnamedIdents = [];
                 var variableValues = regex.exec(declValueArray[i]); // Beware includes original string as well
+
                 if ((typeof unit.abbr === "string") && (unit.abbr.match(GROUP_REGEX))) {
 
                     var newMatches;
@@ -122,13 +124,17 @@ function unitCalculator (decl, units) {
                 variableObj['phi'] = phi;
                 variableObj['n'] = variableValues[1];
 
-                var newValue = pattern.evaluate(variableObj);
-                var delcValueArg = newValue + unit.output;
+
+                var numberOnly = pattern.evaluate(variableObj);
+                var finishedValue = numberOnly + unit.output;
+
+                // Replace argument with correct value
+                var newArg = originalArg.replace(variableValues[0], finishedValue);
 
             }
         };
 
-        declValueArray[i] = delcValueArg;
+        declValueArray[i] = newArg;
     };
 
     declValue = declValueArray.join(" ");
