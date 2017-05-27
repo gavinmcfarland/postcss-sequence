@@ -73,7 +73,6 @@ function unitCalculator (decl, units) {
 
             var regex = makeRegex(unit);
 
-
             // If unit matches declValueArray
             if (declValueArray[i].match(regex)) {
 
@@ -83,7 +82,6 @@ function unitCalculator (decl, units) {
                 var namedIdents = [];
                 var unnamedIdents = [];
                 var variableValues = regex.exec(declValueArray[i]); // Beware includes original string as well
-
                 if ((typeof unit.abbr === "string") && (unit.abbr.match(GROUP_REGEX))) {
 
                     var newMatches;
@@ -124,17 +122,17 @@ function unitCalculator (decl, units) {
                 variableObj['phi'] = phi;
                 variableObj['n'] = variableValues[1];
 
-
                 var numberOnly = pattern.evaluate(variableObj);
                 var finishedValue = numberOnly + unit.output;
 
-                // Replace argument with correct value
-                var newArg = originalArg.replace(variableValues[0], finishedValue);
+                // New argument
+                var newArg = originalArg.replace(variableValues[0], finishedValue)
+                var originalArg = newArg;
 
             }
         };
 
-        declValueArray[i] = newArg;
+        declValueArray[i] = originalArg;
     };
 
     declValue = declValueArray.join(" ");
