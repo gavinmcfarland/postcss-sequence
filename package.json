@@ -1,37 +1,59 @@
 {
   "name": "postcss-sequence",
-  "version": "0.0.4",
-  "description": "PostCSS plugin Manage the consistent scale and proportion of your design using custom units based on numerical sequences",
+  "version": "1.1.1",
+  "description": "A PostCSS plugin for managing consistent scale, proportion and vertical rhythm using custom units based on numerical sequences.",
+  "author": "Gavin <someotter@tadpot>",
+  "license": "CC0-1.0",
+  "repository": "mindthetic/postcss-sequence",
+  "homepage": "https://github.com/mindthetic/postcss-sequence#readme",
+  "bugs": "https://github.com/mindthetic/postcss-sequence/issues",
+  "main": "index.bundle.js",
+  "module": "index.js",
+  "files": [
+    "index.js",
+    "index.bundle.js"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm test",
+    "pretest": "rollup -c .rollup.js --silent",
+    "test": "echo 'Running tests...'; npm run test:ec && npm run test:js && npm run test:tape",
+    "test:ec": "echint --ignore index.bundle.js test",
+    "test:js": "eslint *.js --cache --ignore-path .gitignore --quiet",
+    "test:tape": "postcss-tape"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "expr-eval": "^1.2.1",
+    "postcss": "^6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26",
+    "babel-eslint": "^8.1",
+    "babel-preset-env": "^1.6",
+    "echint": "^4.0",
+    "eslint": "^4.14",
+    "eslint-config-dev": "2.0",
+    "postcss-tape": "2.2",
+    "pre-commit": "^1.2",
+    "rollup": "^0.53",
+    "rollup-plugin-babel": "^3.0"
+  },
+  "eslintConfig": {
+    "extends": "dev",
+    "parser": "babel-eslint"
+  },
   "keywords": [
     "postcss",
     "css",
     "postcss-plugin",
-    "custom units"
-  ],
-  "author": "Gavin McFarland <sevenupcan@gmail.com>",
-  "license": "MIT",
-  "repository": "sevenupcan/postcss-sequence",
-  "bugs": {
-    "url": "https://github.com/sevenupcan/postcss-sequence/issues"
-  },
-  "homepage": "https://github.com/sevenupcan/postcss-sequence",
-  "dependencies": {
-    "postcss": "^5.2.6",
-    "expr-eval": "^1.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^3.12.2",
-    "eslint-config-postcss": "^2.0.2",
-    "expr-eval": "^1.0.0",
-    "jest": "^18.0.0"
-  },
-  "scripts": {
-    "test": "jest && eslint *.js"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-postcss/es5",
-    "env": {
-      "jest": true
-    }
-  }
+    "custom units",
+    "units",
+    "grid",
+    "baseline",
+    "vertical rhythm",
+    "scale",
+    "proportion"
+  ]
 }

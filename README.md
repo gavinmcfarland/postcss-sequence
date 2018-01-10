@@ -1,10 +1,16 @@
-# PostCSS Sequence
+# PostCSS Sequence [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS Logo" width="90" height="90" align="right">][postcss]
 
-A [PostCSS](https://github.com/postcss/postcss) plugin for managing consistent scale and proportion of your design using custom units based on numerical sequences.
+[![NPM Version][npm-img]][npm-url]
+[![Linux Build Status][cli-img]][cli-url]
+[![Windows Build Status][win-img]][win-url]
+[![Gitter Chat][git-img]][git-url]
 
-# Usage
+A [PostCSS] plugin for managing consistent scale, proportion and vertical rhythm using custom units based on numerical sequences.
 
-Create custom units by defining an abbreviation and the pattern to generate the `n`th index from a numerical sequence.
+## Usage
+
+Create custom units by defining an abbreviation and the pattern to generate the n<sup>th</sup> index from a numerical sequence.
+
 ```js
 units: [
     {
@@ -15,26 +21,28 @@ units: [
 ```
 
 Example:
-```
+
+```css
 div {
     padding: 4gu;
 }
 ```
 
 Outputs:
+
 ```css
 div {
-     padding: 16px; // (4 * 4)
+    padding: 16px;
 }
 ```
 
-# Setup
+## Setup
 
+```bash
+npm install postcss-sequence --save-dev
 ```
-npm install postcss-sequence
-```
-
 Define one or more units by passing them to the plugin as options:
+
 ```js
 units: [
     {
@@ -44,27 +52,17 @@ units: [
 ]
 ```
 
-# Options
+## Options
 
-#### `abbr`
-
-A `string`  with the abbreviation of the name for your unit.  For more complex units you can use a number identifier like so `<g>` where `g` is the variable used in your pattern. If you require something unique you can also use a `regex`.
-
-#### `position`
-
-Position of where the abbreviation is placed. To the end by default. Choose from `'start'`, `'middle'` or `'end'`.
-
-
-#### `pattern`
-
-Pattern used to generate the `n` index from a numerical sequence. If using a regex or middle position affix you can use lowercase letters starting from `a` to reference groups in in the order they were captured. See example below.
-
-#### `output`
-
-Optional,`'px'` used by default.
+| Key | Description |
+|-----|-------------|
+| `abbr`    | A `string`  with the abbreviation of the name for your unit.  For more complex units you can use a number identifier like so `<g>` where `g` is the variable used in your pattern. If you require something unique you can also use a `regex`. |
+| `position`| Position of where the abbreviation is placed. To the end by default. Choose from `'start'`, `'middle'` or `'end'`. |
+| `pattern` | Pattern used to generate the `n` index from a numerical sequence. If using a regex or middle position affix you can use lowercase letters starting from `a` to reference groups in in the order they were captured. See example below. |
+| `output` | Optional,`'px'` used by default. |
 
 
-# Various examples
+# Examples
 
 ### Grid units
 
@@ -78,8 +76,9 @@ units: [
 ]
 ```
 
-Usage:
-```
+Example:
+
+```html
 div {
 	padding: 4gu;
 	margin: 4gu 2gu;
@@ -87,6 +86,7 @@ div {
 ```
 
 Outputs:
+
 ```css
 div {
 	padding: 16px;
@@ -96,7 +96,8 @@ div {
 
 ### Font scale
 
-Setting the font based on a scale using golden ratio
+Setting the font based on a scale using golden ratio.
+
 ```js
 units: [
     {
@@ -107,8 +108,9 @@ units: [
 ]
 ```
 
-Usage:
-```
+Example:
+
+```css
 h1 {
 	font-size: 4x;
 }
@@ -121,7 +123,8 @@ h3 {
 ```
 
 Output:
-```
+
+```css
 h1 {
 	font-size: 6.875rem;
 }
@@ -135,7 +138,8 @@ h3 {
 
 ### Feet and inches
 
-Writing in feet and inches
+Writing in feet and inches.
+
 ```js
 units: [
     {
@@ -146,14 +150,16 @@ units: [
 ]
 ```
 
-Usage:
-```
+Example:
+
+```css
 div {
 	width: 4'2";
 }
 ```
 
-Ouputs:
+Outputs:
+
 ```css
 div {
 	width: 500px;
@@ -162,7 +168,8 @@ div {
 
 ### Fractions
 
-Using fractions for percentages
+Using fractions for percentages.
+
 ```js
 units: [
     {
@@ -173,14 +180,16 @@ units: [
 ]
 ```
 
-Usage:
-```
+Example:
+
+```css
 div {
 	width: 1/4;
 }
 ```
 
-Ouputs:
+Outputs:
+
 ```css
 div {
 	width: 25%;
@@ -189,7 +198,8 @@ div {
 
 ### Automatic rounding
 
-Automatically round pixels to the nearest ten pixels
+Automatically round pixels to the nearest ten pixels.
+
 ```js
 units: [
     {
@@ -198,14 +208,15 @@ units: [
     }]
 ```
 
-Usage:
-```
+Example:
+```css
 div {
 	width: 26px;
 }
 ```
 
 Outputs:
+
 ```css
 div {
 	width: 30px;
@@ -214,7 +225,8 @@ div {
 
 ### Fibonacci number
 
-Selecting a number from the fibonacci sequence
+Selecting a number from the fibonacci sequence.
+
 ```js
 units: [
     {
@@ -225,17 +237,31 @@ units: [
 ]
 ```
 
-Usage:
-```
+Example:
+
+```css
 div {
 	width: f6;
 	padding: f3 f4;
 }
 ```
+
 Outputs:
+
 ```css
 div {
 	font-size: 24px;
 	padding: 4.8px;
 }
 ```
+
+[npm-url]: https://www.npmjs.com/package/postcss-sequence
+[npm-img]: https://img.shields.io/npm/v/postcss-sequence.svg?=style=flat
+[cli-url]: https://travis-ci.org/mindthetic/postcss-sequence
+[cli-img]: https://img.shields.io/travis/mindthetic/postcss-sequence.svg
+[win-url]: https://ci.appveyor.com/project/mindthetic/postcss-sequence
+[win-img]: https://img.shields.io/appveyor/ci/mindthetic/postcss-sequence.svg
+[git-url]: https://gitter.im/postcss/postcss
+[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg
+
+[PostCSS]: https://github.com/postcss/postcss
