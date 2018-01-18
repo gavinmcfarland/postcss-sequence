@@ -146,7 +146,9 @@ function unitCalculator(decl, units) {
 export default postcss.plugin("postcss-sequence", opts => {
 	return (css) => {
 		css.walkDecls(decl => {
-			decl.value = unitCalculator(decl, opts.units);
+			if (opts) {
+				decl.value = unitCalculator(decl, opts.units);
+			}
 		});
 	};
 });
